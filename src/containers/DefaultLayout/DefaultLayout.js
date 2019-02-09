@@ -38,7 +38,7 @@ class DefaultLayout extends Component {
     let menuName = '';
     let redirectTo = '/dashboard';
 
-    var x = 2;
+    var x = 1;
     if (x==1) {
       menuRole = 'admin';
       menuName = 'Admin'; // Override the name

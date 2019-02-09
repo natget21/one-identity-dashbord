@@ -37,16 +37,38 @@ const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
 const User = React.lazy(() => import('./views/Users/User'));
 
+
+
+const profile = React.lazy(() => import('./views/Base/pages/profile'));
+const addAdmin = React.lazy(() => import('./views/Base/pages/AddAdmin'));
+const addCompany = React.lazy(() => import('./views/Base/pages/AddCompany'));
+const addIdentity = React.lazy(() => import('./views/Base/pages/AddIdentity'));
+const newdashbord = React.lazy(() => import('./views/Base/pages/Dashboard'));
+const viewAdminaccount = React.lazy(() => import('./views/Base/pages/viewAdminAccounts'));
+const viewCompany = React.lazy(() => import('./views/Base/pages/viewCompany'));
+const viewuseraccount = React.lazy(() => import('./views/Base/pages/ViewUserAccounts'));
+
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
   { path: '/', exact: true, name: 'Home', component: DefaultLayout },
-  { path: '/dashboard', name: 'Dashboard', component: Dashboard },
+  
   { path: '/theme', exact: true, name: 'Theme', component: Colors },
   { path: '/theme/colors', name: 'Colors', component: Colors },
   { path: '/theme/typography', name: 'Typography', component: Typography },
   { path: '/base', exact: true, name: 'Base', component: Cards },
   { path: '/base/cards', name: 'Cards', component: Cards },
-  { path: '/base/forms', name: 'Forms', component: Forms },
+
+
+  { path: '/identity/new', name: 'Add Identity', component: addIdentity },
+  { path: '/profile', name: 'Profile', component: profile },
+  { path: '/dashboard', name: 'Dashboard', component: newdashbord },
+  { path: '/register/accounts', name: 'Add Admin', component: addAdmin },
+  { path: '/register/Company', name: 'Add Whitelist Company', component: addCompany },
+  { path: '/management/user', name: 'User Management', component: viewuseraccount },
+  { path: '/management/registeral', name: 'Admin Management', component: viewAdminaccount },
+  { path: '/management/whitelist', name: 'Company Management', component: viewCompany },
+  
+  
   { path: '/base/switches', name: 'Switches', component: Switches },
   { path: '/base/tables', name: 'Tables', component: Tables },
   { path: '/base/tabs', name: 'Tabs', component: Tabs },
