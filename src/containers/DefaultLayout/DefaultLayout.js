@@ -33,6 +33,24 @@ class DefaultLayout extends Component {
   }
 
   render() {
+
+    let menuRole = '';
+    let menuName = '';
+    let redirectTo = '/dashboard';
+
+    var x = 2;
+    if (x==1) {
+      menuRole = 'admin';
+      menuName = 'Admin'; // Override the name
+      redirectTo = '/dashboard';
+    } else if (x==2) {
+      menuRole = 'registeral';
+      menuName = 'Registeral';
+      redirectTo = '/dashboard';
+    } 
+
+
+
     return (
       <div className="app">
         <AppHeader fixed>
@@ -41,11 +59,11 @@ class DefaultLayout extends Component {
           </Suspense>
         </AppHeader>
         <div className="app-body">
-          <AppSidebar fixed display="lg">
+          <AppSidebar fixed display="lg" >
             <AppSidebarHeader />
             <AppSidebarForm />
             <Suspense>
-            <AppSidebarNav navConfig={navigation} {...this.props} />
+              <AppSidebarNav navConfig={navigation[menuRole]} {...this.props} />
             </Suspense>
             <AppSidebarFooter />
             <AppSidebarMinimizer />
