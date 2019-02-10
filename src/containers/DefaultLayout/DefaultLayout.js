@@ -42,7 +42,9 @@ class DefaultLayout extends Component {
 
   getCurrentUserRole() {
     ClientSession.getAuth((err, value) => {
-      if (!value) return window.location.reload();
+      if (!value) {
+        this.setState({ username: "", role: value.user.role })
+      }
       console.log(value.user.role);
       this.setState({ username: value.user.fname + " " + value.user.lname, role: value.user.role})
     });
