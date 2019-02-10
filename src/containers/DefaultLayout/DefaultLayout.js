@@ -45,8 +45,10 @@ class DefaultLayout extends Component {
       if (!value) {
         this.setState({ username: "", role: "employee" })
       }
+      else{
       console.log(value.user.role);
       this.setState({ username: value.user.fname + " " + value.user.lname, role: value.user.role})
+      }
     });
   }
 
