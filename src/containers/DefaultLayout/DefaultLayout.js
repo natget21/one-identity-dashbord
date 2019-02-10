@@ -43,7 +43,7 @@ class DefaultLayout extends Component {
   getCurrentUserRole() {
     ClientSession.getAuth((err, value) => {
       if (!value) {
-        this.setState({ username: "", role: value.user.role })
+        this.setState({ username: "", role: "employee" })
       }
       console.log(value.user.role);
       this.setState({ username: value.user.fname + " " + value.user.lname, role: value.user.role})
@@ -63,8 +63,7 @@ class DefaultLayout extends Component {
     let menuName = '';
     let redirectTo = '/dashboard';
 
-    var x = 2;
-    if (x==1) {
+    if (this.state.role !="employee") {
       menuRole = 'admin';
       menuName = 'Admin'; // Override the name
       redirectTo = '/dashboard';
