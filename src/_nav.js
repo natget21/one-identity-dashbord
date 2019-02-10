@@ -29,6 +29,11 @@ const adminNav = {
       divider: true,
     },
     {
+      name: 'Add Identity',
+      url: '/identity/new',
+      icon: 'icon-user-follow',
+    },
+    {
       name: 'Management',
       icon: 'icon-calculator',
       children: [

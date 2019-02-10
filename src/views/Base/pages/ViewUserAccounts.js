@@ -54,9 +54,9 @@ class Forms extends Component {
 
   getusers() {
     LModel.find("persons", null, null).then(response => {
-      console.log(response.data.data);
+      console.log(response.data);
       
-      this.setState({ data: response.data.data });
+      this.setState({ data: response.data });
     });
   }
 
@@ -64,17 +64,16 @@ class Forms extends Component {
 
 
     
-    var d = this.state.data;
-    let data = d.map(d => {
-      return `<tr>
-        <td>${d.fname}</td>
-        <td>${d.mname}</td>
-        <td>${d.lname}</td>
-      </tr>`
+
+    // const data = this.state.data.map(d => {
+    //   <tr>
+    //     <td>d.fname</td>
+    //     <td>d.mname</td>
+    //     <td>d.lname</td>
+    //   </tr>
         
       
-    });
-
+    // });
 
 
 
@@ -101,11 +100,45 @@ class Forms extends Component {
                   <tr>
                     <th>First Name</th>
                     <th>Middle Name</th>
-                    <th>Last Name</th>
+                    <th>Citizenship</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {data}
+                  <tr>
+                    <td>abel</td>
+                    <td>kebede</td>
+                    <td>Ethiopian</td>
+                  </tr>
+                  <tr>
+                    <td>selam</td>
+                    <td>abebe</td>
+                    <td>Ethiopian</td>
+                  </tr>
+                  <tr>
+                    <td>kidus</td>
+                    <td>mulgeta</td>
+                    <td>Ethiopian</td>
+                  </tr>
+                    <tr>
+                      <td>selam</td>
+                      <td>abebe</td>
+                      <td>Ethiopian</td>
+                    </tr>
+                    <tr>
+                      <td>kidus</td>
+                      <td>mulgeta</td>
+                      <td>Ethiopian</td>
+                    </tr>
+                    <tr>
+                      <td>selam</td>
+                      <td>abebe</td>
+                      <td>Ethiopian</td>
+                    </tr>
+                    <tr>
+                      <td>kidus</td>
+                      <td>mulgeta</td>
+                      <td>Ethiopian</td>
+                    </tr>
                 </tbody>
               </Table>
               </CardBody>

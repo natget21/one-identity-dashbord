@@ -65,7 +65,7 @@ class DefaultLayout extends Component {
     let menuName = '';
     let redirectTo = '/dashboard';
 
-    if (this.state.role !="employee") {
+    if (this.state.role =="employee") {
       menuRole = 'admin';
       menuName = 'Admin'; // Override the name
       redirectTo = '/dashboard';

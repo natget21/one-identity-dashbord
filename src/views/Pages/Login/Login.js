@@ -28,7 +28,7 @@ class Login extends Component {
       .then(response => {
         if (response.success) {
             this.setState({ visible: false })
-            this.props.history.push('/dashboard');
+            this.props.history.push('dashboard');
             //window.location.reload()
             
         } else {
