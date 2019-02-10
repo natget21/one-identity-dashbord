@@ -62,7 +62,7 @@ const routes = [
   { path: '/identity/new', name: 'Add Identity', component: addIdentity },
   { path: '/profile', name: 'Profile', component: profile },
   { path: '/dashboard', name: 'Dashboard', component: newdashbord },
-  { path: '/register/accounts', name: 'Add Admin', component: addAdmin },
+  { path: '/register/accounts', name: 'Register', component: addAdmin },
   { path: '/register/Company', name: 'Add Whitelist Company', component: addCompany },
   { path: '/management/user', name: 'User Management', component: viewuseraccount },
   { path: '/management/registeral', name: 'Admin Management', component: viewAdminaccount },
