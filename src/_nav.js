@@ -36,17 +36,17 @@ const adminNav = {
           name: "User Accounts",
           url: "/management/user",
           icon: "cui-user"
-        },
-        {
-          name: "Admin Accounts",
-          url: "/management/registeral",
-          icon: "icon-user"
-        },
-        {
-          name: "Whitelist Company",
-          url: "/management/whitelist",
-          icon: "cui-layers"
-        }
+         },
+        // {
+        //   name: "Admin Accounts",
+        //   url: "/management/registeral",
+        //   icon: "icon-user"
+        // },
+        // {
+        //   name: "Whitelist Company",
+        //   url: "/management/whitelist",
+        //   icon: "cui-layers"
+        // }
       ]
     },
     {
