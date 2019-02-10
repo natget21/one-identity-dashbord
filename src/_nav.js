@@ -10,19 +10,20 @@ const adminNav = {
     },
     {
       name: 'Register',
+      url: '/register/accounts',
       icon: 'icon-note',
-      children: [
-        {
-          name: "Add Account",
-          url: "/register/accounts",
-          icon: "icon-user-follow"
-        },
-        {
-          name: "Add Company",
-          url: "/register/Company",
-          icon: "icon-plus"
-        }
-      ]
+      // children: [
+      //   {
+      //     name: "Add Account",
+      //     url: "/register/accounts",
+      //     icon: "icon-user-follow"
+      //   },
+      //   {
+      //     name: "Add Company",
+      //     url: "/register/Company",
+      //     icon: "icon-plus"
+      //   }
+      // ]
     },
     {
       divider: true,
