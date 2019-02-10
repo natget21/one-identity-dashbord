@@ -14,8 +14,14 @@ const propTypes = {
 const defaultProps = {};
 
 class DefaultHeader extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: this.props.name
+    }
+  }
   render() {
-
+    
     // eslint-disable-next-line
     const { children, ...attributes } = this.props;
 
@@ -51,7 +57,7 @@ class DefaultHeader extends Component {
           </NavItem> */}
           <AppHeaderDropdown direction="down">
             <DropdownToggle nav>
-              Natnael Getachew <img src={'../../assets/img/male.png'} className="img-avatar" alt="username" />
+              <img src={'../../assets/img/male.png'} className="img-avatar" alt="username" /> {this.state.username}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </DropdownToggle>
             <DropdownMenu right style={{ right: 'auto' }}>
               <DropdownItem><i className="fa fa-file"></i> Language<Badge color="primary">"En"</Badge></DropdownItem>

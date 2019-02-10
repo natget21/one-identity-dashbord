@@ -19,11 +19,34 @@ import navigation from '../../_nav';
 // routes config
 import routes from '../../routes';
 
+import LModel from '../../services/api'
+import ClientSession from "../../../src/services/client-session.js"
+
+
 const DefaultAside = React.lazy(() => import('./DefaultAside'));
 const DefaultFooter = React.lazy(() => import('./DefaultFooter'));
 const DefaultHeader = React.lazy(() => import('./DefaultHeader'));
 
 class DefaultLayout extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      
+      username: "",
+      role:""
+
+    };
+    this.getCurrentUserRole();
+  }
+
+  getCurrentUserRole() {
+    ClientSession.getAuth((err, value) => {
+      if (!value) return window.location.reload();
+      console.log(value.user.role);
+      this.setState({ username: value.user.fname + " " + value.user.lname, role: value.user.role})
+    });
+  }
 
   loading = () => <div className="animated fadeIn pt-1 text-center">Loading...</div>
 
@@ -38,12 +61,11 @@ class DefaultLayout extends Component {
     let menuName = '';
     let redirectTo = '/dashboard';
 
-    var x = 1;
-    if (x==1) {
+    if (this.state.role !="employee") {
       menuRole = 'admin';
       menuName = 'Admin'; // Override the name
       redirectTo = '/dashboard';
-    } else if (x==2) {
+    } else{
       menuRole = 'registeral';
       menuName = 'Registeral';
       redirectTo = '/dashboard';
@@ -55,7 +77,7 @@ class DefaultLayout extends Component {
       <div className="app">
         <AppHeader fixed>
           <Suspense  fallback={this.loading()}>
-            <DefaultHeader onLogout={e=>this.signOut(e)}/>
+            <DefaultHeader name = {this.state.username} onLogout={e=>this.signOut(e)}/>
           </Suspense>
         </AppHeader>
         <div className="app-body">

@@ -4,6 +4,8 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import Loadable from 'react-loadable';
 import './App.scss';
 
+import ClientSession from "./services/client-session.js"
+
 const loading = () => <div className="animated fadeIn pt-3 text-center">Loading...</div>;
 
 // Containers
@@ -35,6 +37,22 @@ const Page500 = Loadable({
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      valid:true
+    };
+    this.getCurrentUserRole();
+  }
+
+  getCurrentUserRole() {
+    ClientSession.getAuth((err, value) => {
+      if (!value) {
+        this.setState({valid:false})
+      }
+    });
+  }
+
   render() {
     return (
       <HashRouter>
@@ -43,7 +61,7 @@ class App extends Component {
             <Route exact path="/register" name="Register Page" component={Register} />
             <Route exact path="/404" name="Page 404" component={Page404} />
             <Route exact path="/500" name="Page 500" component={Page500} />
-            <Route path="/" name="Home" component={DefaultLayout} />
+          {this.state.valid ? <Route path="/" name="Home" component={DefaultLayout} /> : <Route path="/" name="Home" component={Login} />}
           </Switch>
       </HashRouter>
     );
